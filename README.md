@@ -228,12 +228,33 @@ To add a new boilerplate:
 
 These boilerplates are extracted from TechShu LMS and are available for use in your projects.
 
-## 🆘 Support
+## 📚 Complete Documentation
 
-For issues or questions:
-1. Check the boilerplate's README
-2. Review the examples folder
-3. Check the main TechShu LMS documentation
+### 🚀 Getting Started
+- **[QUICK_START.md](./QUICK_START.md)** - 5-minute quick start
+- **[GETTING_STARTED.md](./GETTING_STARTED.md)** - Complete getting started guide
+- **[TUTORIALS.md](./TUTORIALS.md)** - Step-by-step tutorials
+
+### 💡 Usage & Examples
+- **[EXAMPLES.md](./EXAMPLES.md)** - Real-world code examples
+- **[SCENARIOS.md](./SCENARIOS.md)** - Project scenarios (LMS, SaaS, E-commerce)
+- **[BEST_PRACTICES.md](./BEST_PRACTICES.md)** - Best practices and patterns
+
+### 🔌 API & Integration
+- **[API.md](./API.md)** - Complete API reference
+- **[INTEGRATION_GUIDE.md](./INTEGRATION_GUIDE.md)** - Integration examples
+- **[API_SYSTEM_OVERVIEW.md](./API_SYSTEM_OVERVIEW.md)** - System overview
+
+### 🆘 Help & Support
+- **[FAQ.md](./FAQ.md)** - Frequently asked questions
+- **[TROUBLESHOOTING.md](./TROUBLESHOOTING.md)** - Common issues and solutions
+- **[GitHub Issues](https://github.com/teachskillofskills-ai/techshu-boilerplates/issues)** - Report bugs
+- **[GitHub Discussions](https://github.com/teachskillofskills-ai/techshu-boilerplates/discussions)** - Ask questions
+
+### 📖 Reference
+- **[OVERVIEW.md](./OVERVIEW.md)** - Complete overview
+- **[HOW_TO_USE_IN_OTHER_PROJECTS.md](./HOW_TO_USE_IN_OTHER_PROJECTS.md)** - Usage guide
+- **[INSTALL_ALL.md](./INSTALL_ALL.md)** - Installation guide
 
 ## 🎓 Learning Resources
 
