@@ -471,3 +471,12 @@ import { Button } from '@/components/button'
 
 Ask in our [GitHub Discussions](https://github.com/teachskillofskills-ai/techshu-boilerplates/discussions)!
 
+---
+
+## Author
+
+**Created with ❤️ by [Indranil Banerjee](https://in.linkedin.com/in/askneelnow)**
+*Head of AI Transformation, INT TechShu*
+
+© 2025 TechShu - Created by Indranil Banerjee
+

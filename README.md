@@ -265,5 +265,17 @@ These boilerplates are extracted from TechShu LMS and are available for use in y
 
 ---
 
-**Made with ❤️ by TechShu Team**
+## 👨‍💻 Author
+
+**Made with ❤️ by [Indranil Banerjee](https://in.linkedin.com/in/askneelnow)**
+*Head of AI Transformation, INT TechShu*
+
+Connect with me:
+- 💼 [LinkedIn](https://in.linkedin.com/in/askneelnow)
+- 🏢 [TechShu](https://techshu.com)
+- 📧 Contact: indranilbanerjee21@gmail.com
+
+---
+
+**© 2025 TechShu - Created by Indranil Banerjee**
 

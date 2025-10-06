@@ -2,6 +2,12 @@
   "name": "TechShu Boilerplates",
   "version": "1.0.0",
   "description": "Production-ready boilerplates for Next.js 14 + Supabase applications",
+  "author": {
+    "name": "Indranil Banerjee",
+    "title": "Head of AI Transformation, INT TechShu",
+    "linkedin": "https://in.linkedin.com/in/askneelnow",
+    "email": "indranilbanerjee21@gmail.com"
+  },
   "repository": "https://github.com/teachskillofskills-ai/techshu-boilerplates",
   "homepage": "https://github.com/teachskillofskills-ai/techshu-boilerplates",
   "license": "MIT",

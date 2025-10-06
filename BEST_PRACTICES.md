@@ -583,3 +583,12 @@ await trackPerformance('Generate AI Response', () =>
 - **FAQ**: [FAQ.md](./FAQ.md)
 - **Discussions**: https://github.com/teachskillofskills-ai/techshu-boilerplates/discussions
 
+---
+
+## Author
+
+**Created with ❤️ by [Indranil Banerjee](https://in.linkedin.com/in/askneelnow)**
+*Head of AI Transformation, INT TechShu*
+
+© 2025 TechShu - Created by Indranil Banerjee
+

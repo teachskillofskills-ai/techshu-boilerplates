@@ -1,5 +1,16 @@
 #!/usr/bin/env node
 
+/**
+ * TechShu Boilerplates CLI
+ *
+ * Created by: Indranil Banerjee
+ * Title: Head of AI Transformation, INT TechShu
+ * LinkedIn: https://in.linkedin.com/in/askneelnow
+ * Email: indranilbanerjee21@gmail.com
+ *
+ * © 2025 TechShu - All Rights Reserved
+ */
+
 import { Command } from 'commander';
 import chalk from 'chalk';
 import ora from 'ora';
@@ -35,8 +46,18 @@ const program = new Command();
 
 program
   .name('techshu')
-  .description('CLI tool to fetch TechShu boilerplates and components')
-  .version('1.0.0');
+  .description('CLI tool to fetch TechShu boilerplates and components\nCreated by Indranil Banerjee - Head of AI Transformation, INT TechShu')
+  .version('1.0.0')
+
+// Show author info on help
+program.on('--help', () => {
+  console.log('')
+  console.log(chalk.gray('Created by:'))
+  console.log(chalk.cyan('  Indranil Banerjee'))
+  console.log(chalk.gray('  Head of AI Transformation, INT TechShu'))
+  console.log(chalk.gray('  LinkedIn: https://in.linkedin.com/in/askneelnow'))
+  console.log('')
+});
 
 // List all boilerplates
 program

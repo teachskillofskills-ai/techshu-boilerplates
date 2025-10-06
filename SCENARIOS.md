@@ -473,3 +473,12 @@ techshu add seo-components
 Can't find your scenario? Ask in our discussions:
 https://github.com/teachskillofskills-ai/techshu-boilerplates/discussions
 
+---
+
+## Author
+
+**Created with ❤️ by [Indranil Banerjee](https://in.linkedin.com/in/askneelnow)**
+*Head of AI Transformation, INT TechShu*
+
+© 2025 TechShu - Created by Indranil Banerjee
+

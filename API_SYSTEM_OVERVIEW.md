@@ -397,5 +397,19 @@ You now have a **complete, production-ready API system** for your boilerplates:
 
 ---
 
+## Author
+
+**Created with ❤️ by [Indranil Banerjee](https://in.linkedin.com/in/askneelnow)**
+*Head of AI Transformation, INT TechShu*
+
+Connect with me:
+- 💼 LinkedIn: https://in.linkedin.com/in/askneelnow
+- 📧 Email: indranilbanerjee21@gmail.com
+- 🏢 TechShu: https://techshu.com
+
+© 2025 TechShu - Created by Indranil Banerjee
+
+---
+
 **Your boilerplate marketplace is ready! 🎉**
 

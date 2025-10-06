@@ -457,6 +457,15 @@ npm install -g @techshu/cli
 
 ---
 
+## Author
+
+**Created with ❤️ by [Indranil Banerjee](https://in.linkedin.com/in/askneelnow)**
+*Head of AI Transformation, INT TechShu*
+
+© 2025 TechShu - Created by Indranil Banerjee
+
+---
+
 ## License
 
 MIT License - Free to use in commercial and personal projects.
