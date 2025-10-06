@@ -397,7 +397,309 @@ npm run dev
 
 ---
 
-*Created with ❤️ by [Indranil Banerjee](https://in.linkedin.com/in/askneelnow)*  
+### 📝 Step 5: Add Course Management (10 minutes)
+
+Now let's add the ability to create and manage courses.
+
+#### 5.1: Add Course Management Boilerplate
+
+```bash
+techshu add course-management --path ./src/lib
+
+# Install additional dependencies
+npm install react-hook-form zod
+```
+
+#### 5.2: Run Course Database Migrations
+
+In Supabase SQL Editor, run these migrations:
+
+1. `src/lib/course-management/database/01_courses_table.sql`
+2. `src/lib/course-management/database/02_modules_table.sql`
+3. `src/lib/course-management/database/03_chapters_table.sql`
+4. `src/lib/course-management/database/04_rls_policies.sql`
+
+**What did we create?**
+- `courses` table: Store course information
+- `modules` table: Group chapters into modules
+- `chapters` table: Individual lessons
+- RLS policies: Instructors can only edit their own courses
+
+#### 5.3: Create Course Creation Page
+
+Create `src/app/dashboard/courses/new/page.tsx`:
+
+```typescript
+'use client'
+
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { createClient } from '@/lib/authentication/lib/supabase/client'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
+
+export default function NewCoursePage() {
+  const router = useRouter()
+  const supabase = createClient()
+
+  const [title, setTitle] = useState('')
+  const [description, setDescription] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setLoading(true)
+    setError(null)
+
+    try {
+      // Get current user
+      const { data: { user } } = await supabase.auth.getUser()
+
+      if (!user) {
+        setError('You must be logged in to create a course')
+        return
+      }
+
+      // Create course
+      const { data: course, error: courseError } = await supabase
+        .from('courses')
+        .insert({
+          title,
+          description,
+          instructor_id: user.id,
+          published: false,
+        })
+        .select()
+        .single()
+
+      if (courseError) throw courseError
+
+      // Redirect to course edit page
+      router.push(`/dashboard/courses/${course.id}/edit`)
+
+    } catch (err) {
+      console.error('Error creating course:', err)
+      setError('Failed to create course. Please try again.')
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  return (
+    <div className="max-w-2xl mx-auto p-8">
+      <h1 className="text-3xl font-bold mb-8">Create New Course</h1>
+
+      {error && (
+        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded mb-4">
+          {error}
+        </div>
+      )}
+
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <div>
+          <label htmlFor="title" className="block text-sm font-medium mb-2">
+            Course Title
+          </label>
+          <Input
+            id="title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder="Introduction to Web Development"
+            required
+            disabled={loading}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="description" className="block text-sm font-medium mb-2">
+            Course Description
+          </label>
+          <Textarea
+            id="description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            placeholder="Learn the fundamentals of web development..."
+            rows={6}
+            required
+            disabled={loading}
+          />
+        </div>
+
+        <div className="flex gap-4">
+          <Button type="submit" disabled={loading}>
+            {loading ? 'Creating...' : 'Create Course'}
+          </Button>
+          <Button
+            type="button"
+            variant="outline"
+            onClick={() => router.back()}
+            disabled={loading}
+          >
+            Cancel
+          </Button>
+        </div>
+      </form>
+    </div>
+  )
+}
+```
+
+#### 5.4: Create Course List Page
+
+Create `src/app/dashboard/courses/page.tsx`:
+
+```typescript
+'use client'
+
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { createClient } from '@/lib/authentication/lib/supabase/client'
+import { Button } from '@/components/ui/button'
+import { Plus } from 'lucide-react'
+
+interface Course {
+  id: string
+  title: string
+  description: string
+  published: boolean
+  created_at: string
+}
+
+export default function CoursesPage() {
+  const router = useRouter()
+  const supabase = createClient()
+
+  const [courses, setCourses] = useState<Course[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    fetchCourses()
+  }, [])
+
+  const fetchCourses = async () => {
+    try {
+      const { data: { user } } = await supabase.auth.getUser()
+
+      if (!user) {
+        router.push('/login')
+        return
+      }
+
+      const { data, error } = await supabase
+        .from('courses')
+        .select('*')
+        .eq('instructor_id', user.id)
+        .order('created_at', { ascending: false })
+
+      if (error) throw error
+
+      setCourses(data || [])
+    } catch (err) {
+      console.error('Error fetching courses:', err)
+      setError('Failed to load courses')
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600" />
+      </div>
+    )
+  }
+
+  return (
+    <div className="max-w-6xl mx-auto p-8">
+      <div className="flex justify-between items-center mb-8">
+        <h1 className="text-3xl font-bold">My Courses</h1>
+        <Button onClick={() => router.push('/dashboard/courses/new')}>
+          <Plus className="mr-2 h-4 w-4" />
+          Create Course
+        </Button>
+      </div>
+
+      {error && (
+        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded mb-4">
+          {error}
+        </div>
+      )}
+
+      {courses.length === 0 ? (
+        <div className="text-center py-12">
+          <p className="text-gray-500 mb-4">You haven't created any courses yet.</p>
+          <Button onClick={() => router.push('/dashboard/courses/new')}>
+            Create Your First Course
+          </Button>
+        </div>
+      ) : (
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {courses.map((course) => (
+            <div
+              key={course.id}
+              className="border rounded-lg p-6 hover:shadow-lg transition-shadow cursor-pointer"
+              onClick={() => router.push(`/dashboard/courses/${course.id}`)}
+            >
+              <div className="flex justify-between items-start mb-4">
+                <h3 className="text-xl font-semibold">{course.title}</h3>
+                <span
+                  className={`px-2 py-1 text-xs rounded ${
+                    course.published
+                      ? 'bg-green-100 text-green-800'
+                      : 'bg-gray-100 text-gray-800'
+                  }`}
+                >
+                  {course.published ? 'Published' : 'Draft'}
+                </span>
+              </div>
+              <p className="text-gray-600 text-sm line-clamp-3">
+                {course.description}
+              </p>
+              <div className="mt-4 text-xs text-gray-500">
+                Created {new Date(course.created_at).toLocaleDateString()}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+```
+
+---
+
+### 🎉 Checkpoint: What You've Built
+
+At this point, you have:
+- ✅ A working Next.js application
+- ✅ User authentication (login/signup)
+- ✅ Course creation functionality
+- ✅ Course listing page
+- ✅ Database with proper security (RLS)
+- ✅ Professional UI with Tailwind CSS
+
+**Test it out**:
+1. Sign up for an account
+2. Create a course
+3. View your courses list
+4. Try creating another course
+
+---
+
+### 📚 What's Next?
+
+**Tutorial 2**: Add AI-powered Q&A with RAG
+**Tutorial 3**: Build an admin dashboard
+**Tutorial 4**: Implement email notifications
+
+---
+
+*Created with ❤️ by [Indranil Banerjee](https://in.linkedin.com/in/askneelnow)*
 *Head of AI Transformation, INT TechShu*
 
 📧 hi@indranil.in | 💼 [LinkedIn](https://in.linkedin.com/in/askneelnow) | 🌐 [indranil.in](https://indranil.in)

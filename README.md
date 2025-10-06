@@ -236,6 +236,15 @@ These boilerplates are extracted from TechShu LMS and are available for use in y
 
 ## 📚 Complete Documentation
 
+### 🌟 NEW: Comprehensive Guides (Start Here!)
+
+**Written from a user's perspective with real-world context, gotchas, and production patterns**
+
+- 📖 **[USER_GUIDE.md](./USER_GUIDE.md)** - Complete guide for all skill levels
+- 🎓 **[TUTORIALS_COMPREHENSIVE.md](./TUTORIALS_COMPREHENSIVE.md)** - Deep-dive step-by-step tutorials
+- 🎯 **[SCENARIOS_COMPREHENSIVE.md](./SCENARIOS_COMPREHENSIVE.md)** - Real-world use cases with architecture & costs
+- 💻 **[EXAMPLES_COMPREHENSIVE.md](./EXAMPLES_COMPREHENSIVE.md)** - Production-ready code examples
+
 ### 🚀 Getting Started
 - **[QUICK_START.md](./QUICK_START.md)** - 5-minute quick start
 - **[GETTING_STARTED.md](./GETTING_STARTED.md)** - Complete getting started guide
