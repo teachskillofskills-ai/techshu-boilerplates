@@ -2,7 +2,7 @@
 
 <div align="center">
 
-**36 Production-Ready Boilerplates for Next.js 14 + Supabase Applications**
+**42 Production-Ready Boilerplates for Next.js 14 + Supabase Applications**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
@@ -19,7 +19,7 @@
 
 ## 📊 Overview
 
-A comprehensive collection of **36 production-ready boilerplates** extracted from TechShu LMS. Each boilerplate includes:
+A comprehensive collection of **42 production-ready boilerplates** extracted from TechShu LMS. Each boilerplate includes:
 
 - ✅ **203 source files** - Production-tested code
 - ✅ **Complete documentation** - 200-300 lines per boilerplate
@@ -31,9 +31,9 @@ A comprehensive collection of **36 production-ready boilerplates** extracted fro
 
 ---
 
-## 📦 Available Boilerplates (36)
+## 📦 Available Boilerplates (42)
 
-### 🤖 AI & Intelligence (7)
+### 🤖 AI & Intelligence (13)
 | Boilerplate | Description | Files |
 |-------------|-------------|-------|
 | **[ai-service](./ai-service/)** | Multi-provider AI with 9-model fallback | 2 |
@@ -43,6 +43,12 @@ A comprehensive collection of **36 production-ready boilerplates** extracted fro
 | **[ai-content-enhancement](./ai-content-enhancement/)** | Rich text editor with AI | 4 |
 | **[ai-chat-storage](./ai-chat-storage/)** | Optimized AI chat storage | 2 |
 | **[voice-ai](./voice-ai/)** | Voice AI tutor with VAPI | 3 |
+| **[rag-system](./rag-system/)** | Complete RAG with vector embeddings | 3 |
+| **[embedding-service](./embedding-service/)** | Multi-provider embedding generation | 2 |
+| **[chunking-service](./chunking-service/)** | Document chunking strategies | 1 |
+| **[rag-evaluation](./rag-evaluation/)** | RAG quality metrics & testing | 1 |
+| **[ai-testing](./ai-testing/)** | AI testing framework | 1 |
+| **[ai-debugging](./ai-debugging/)** | AI debugging & monitoring tools | 1 |
 
 ### 👨‍💼 Admin & Management (8)
 | Boilerplate | Description | Files |
