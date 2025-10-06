@@ -6,7 +6,8 @@
  * Created by: Indranil Banerjee
  * Title: Head of AI Transformation, INT TechShu
  * LinkedIn: https://in.linkedin.com/in/askneelnow
- * Email: indranilbanerjee21@gmail.com
+ * Email: hi@indranil.in
+ * Work: indranil.banerjee@intglobal.com
  *
  * © 2025 TechShu - All Rights Reserved
  */

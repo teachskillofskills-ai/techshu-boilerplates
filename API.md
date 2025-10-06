@@ -345,7 +345,9 @@ export function useBoilerplates() {
 *Head of AI Transformation, INT TechShu*
 
 - 💼 LinkedIn: https://in.linkedin.com/in/askneelnow
-- 📧 Email: indranilbanerjee21@gmail.com
+- 📧 Personal: hi@indranil.in
+- 📧 Work: indranil.banerjee@intglobal.com
+- 🌐 Website: https://indranil.in
 - 🏢 TechShu: https://techshu.com
 
 ---

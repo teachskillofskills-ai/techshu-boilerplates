@@ -25,9 +25,11 @@ Indranil Banerjee is the Head of AI Transformation at INT TechShu, specializing 
 ## Connect
 
 - 💼 **LinkedIn**: [https://in.linkedin.com/in/askneelnow](https://in.linkedin.com/in/askneelnow)
-- 📧 **Email**: indranilbanerjee21@gmail.com
+- 📧 **Personal Email**: hi@indranil.in
+- 📧 **Work Email**: indranil.banerjee@intglobal.com
+- 🌐 **Personal Website**: https://indranil.in
 - 🏢 **Company**: TechShu (TeachSkillOfSkills AI)
-- 🌐 **Website**: https://techshu.com
+- 🏢 **Company Website**: https://techshu.com
 - 💻 **GitHub**: https://github.com/teachskillofskills-ai
 
 ---
@@ -95,11 +97,13 @@ Copyright (c) 2025 Indranil Banerjee - TechShu
 
 For business inquiries, collaborations, or questions:
 
-**Indranil Banerjee**  
+**Indranil Banerjee**
 Head of AI Transformation, INT TechShu
 
-- 📧 Email: indranilbanerjee21@gmail.com
+- 📧 Personal: hi@indranil.in
+- 📧 Work: indranil.banerjee@intglobal.com
 - 💼 LinkedIn: https://in.linkedin.com/in/askneelnow
+- 🌐 Website: https://indranil.in
 - 🏢 Company: https://techshu.com
 
 ---

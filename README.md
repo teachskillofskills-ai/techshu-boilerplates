@@ -273,7 +273,8 @@ These boilerplates are extracted from TechShu LMS and are available for use in y
 Connect with me:
 - 💼 [LinkedIn](https://in.linkedin.com/in/askneelnow)
 - 🏢 [TechShu](https://techshu.com)
-- 📧 Contact: indranilbanerjee21@gmail.com
+- 📧 Personal: hi@indranil.in
+- 📧 Work: indranil.banerjee@intglobal.com
 
 ---
 

@@ -404,7 +404,9 @@ You now have a **complete, production-ready API system** for your boilerplates:
 
 Connect with me:
 - 💼 LinkedIn: https://in.linkedin.com/in/askneelnow
-- 📧 Email: indranilbanerjee21@gmail.com
+- 📧 Personal: hi@indranil.in
+- 📧 Work: indranil.banerjee@intglobal.com
+- 🌐 Website: https://indranil.in
 - 🏢 TechShu: https://techshu.com
 
 © 2025 TechShu - Created by Indranil Banerjee
