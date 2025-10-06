@@ -97,6 +97,41 @@ A comprehensive collection of **36 production-ready boilerplates** extracted fro
 
 ## 🎯 Quick Start
 
+### Method 1: Use the CLI (Recommended) ⭐
+
+```bash
+# Install CLI globally
+npm install -g @techshu/cli
+
+# List available boilerplates
+techshu list
+
+# Search for boilerplates
+techshu search email
+
+# Add a boilerplate to your project
+techshu add email-service
+
+# Add to specific path
+techshu add email-service --path ./src/lib
+```
+
+### Method 2: Use the API 🔌
+
+```typescript
+// Fetch registry
+const response = await fetch('https://raw.githubusercontent.com/teachskillofskills-ai/techshu-boilerplates/main/registry.json');
+const registry = await response.json();
+
+// Fetch a specific component
+const componentUrl = 'https://raw.githubusercontent.com/teachskillofskills-ai/techshu-boilerplates/main/email-service/lib/brevo-service.ts';
+const code = await fetch(componentUrl).then(r => r.text());
+```
+
+**See [API.md](./API.md) for complete API documentation**
+
+### Method 3: Manual Installation 📋
+
 ### 1. Choose Your Boilerplate
 Browse the available boilerplates and select the one you need.
 

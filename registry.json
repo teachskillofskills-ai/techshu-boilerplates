@@ -1,0 +1,194 @@
+{
+  "name": "TechShu Boilerplates",
+  "version": "1.0.0",
+  "description": "Production-ready boilerplates for Next.js 14 + Supabase applications",
+  "repository": "https://github.com/teachskillofskills-ai/techshu-boilerplates",
+  "homepage": "https://github.com/teachskillofskills-ai/techshu-boilerplates",
+  "license": "MIT",
+  "lastUpdated": "2025-10-06",
+  "categories": {
+    "ai": "AI & Intelligence",
+    "admin": "Admin & Management",
+    "communication": "Communication",
+    "content": "Content & Learning",
+    "ui": "UI & Components",
+    "utilities": "Utilities"
+  },
+  "boilerplates": [
+    {
+      "id": "ai-service",
+      "name": "AI Service",
+      "category": "ai",
+      "version": "1.0.0",
+      "description": "Multi-provider AI service with 9-model fallback system",
+      "tags": ["ai", "openai", "gemini", "openrouter", "fallback"],
+      "files": 2,
+      "components": 0,
+      "lib": 2,
+      "dependencies": ["openai", "@google/generative-ai"],
+      "path": "ai-service",
+      "readme": "https://raw.githubusercontent.com/teachskillofskills-ai/techshu-boilerplates/main/ai-service/README.md"
+    },
+    {
+      "id": "ai-chat-system",
+      "name": "AI Chat System",
+      "category": "ai",
+      "version": "1.0.0",
+      "description": "Complete AI chat system with session management",
+      "tags": ["ai", "chat", "session", "streaming"],
+      "files": 5,
+      "components": 1,
+      "lib": 1,
+      "hooks": 1,
+      "api": 1,
+      "dependencies": ["openai", "@supabase/supabase-js"],
+      "path": "ai-chat-system",
+      "readme": "https://raw.githubusercontent.com/teachskillofskills-ai/techshu-boilerplates/main/ai-chat-system/README.md"
+    },
+    {
+      "id": "email-service",
+      "name": "Email Service",
+      "category": "communication",
+      "version": "1.0.0",
+      "description": "Production-ready email service with Brevo integration",
+      "tags": ["email", "brevo", "templates", "transactional"],
+      "files": 9,
+      "components": 0,
+      "lib": 3,
+      "examples": 4,
+      "database": 1,
+      "dependencies": ["@getbrevo/brevo"],
+      "path": "email-service",
+      "readme": "https://raw.githubusercontent.com/teachskillofskills-ai/techshu-boilerplates/main/email-service/README.md"
+    },
+    {
+      "id": "authentication",
+      "name": "Authentication",
+      "category": "utilities",
+      "version": "1.0.0",
+      "description": "Supabase authentication with PKCE flow",
+      "tags": ["auth", "supabase", "pkce", "oauth"],
+      "files": 4,
+      "components": 0,
+      "lib": 2,
+      "database": 2,
+      "dependencies": ["@supabase/supabase-js", "@supabase/ssr"],
+      "path": "authentication",
+      "readme": "https://raw.githubusercontent.com/teachskillofskills-ai/techshu-boilerplates/main/authentication/README.md"
+    },
+    {
+      "id": "design-system",
+      "name": "Design System",
+      "category": "ui",
+      "version": "1.0.0",
+      "description": "Complete design token system with themes and gradients",
+      "tags": ["design", "tokens", "themes", "gradients", "dark-mode"],
+      "files": 7,
+      "components": 0,
+      "lib": 5,
+      "examples": 2,
+      "dependencies": [],
+      "path": "design-system",
+      "readme": "https://raw.githubusercontent.com/teachskillofskills-ai/techshu-boilerplates/main/design-system/README.md"
+    },
+    {
+      "id": "course-management",
+      "name": "Course Management",
+      "category": "content",
+      "version": "1.0.0",
+      "description": "Complete LMS course management system",
+      "tags": ["lms", "courses", "chapters", "modules", "education"],
+      "files": 19,
+      "components": 16,
+      "lib": 2,
+      "dependencies": ["@supabase/supabase-js", "lucide-react"],
+      "path": "course-management",
+      "readme": "https://raw.githubusercontent.com/teachskillofskills-ai/techshu-boilerplates/main/course-management/README.md"
+    },
+    {
+      "id": "admin-dashboard",
+      "name": "Admin Dashboard",
+      "category": "admin",
+      "version": "1.0.0",
+      "description": "Complete admin panel with role management",
+      "tags": ["admin", "dashboard", "rbac", "management"],
+      "files": 15,
+      "components": 10,
+      "lib": 3,
+      "dependencies": ["@supabase/supabase-js", "lucide-react"],
+      "path": "admin-dashboard",
+      "readme": "https://raw.githubusercontent.com/teachskillofskills-ai/techshu-boilerplates/main/admin-dashboard/README.md"
+    },
+    {
+      "id": "form-components",
+      "name": "Form Components",
+      "category": "ui",
+      "version": "1.0.0",
+      "description": "31 shadcn/ui form components",
+      "tags": ["forms", "ui", "shadcn", "components", "radix"],
+      "files": 32,
+      "components": 31,
+      "lib": 1,
+      "dependencies": ["@radix-ui/react-*", "class-variance-authority"],
+      "path": "form-components",
+      "readme": "https://raw.githubusercontent.com/teachskillofskills-ai/techshu-boilerplates/main/form-components/README.md"
+    },
+    {
+      "id": "assignment-system",
+      "name": "Assignment System",
+      "category": "content",
+      "version": "1.0.0",
+      "description": "Assignment creation and submission system",
+      "tags": ["assignments", "submissions", "grading", "education"],
+      "files": 7,
+      "components": 5,
+      "lib": 1,
+      "dependencies": ["@supabase/supabase-js"],
+      "path": "assignment-system",
+      "readme": "https://raw.githubusercontent.com/teachskillofskills-ai/techshu-boilerplates/main/assignment-system/README.md"
+    },
+    {
+      "id": "pdf-generator",
+      "name": "PDF Generator",
+      "category": "utilities",
+      "version": "1.0.0",
+      "description": "PDF generation with jsPDF",
+      "tags": ["pdf", "generation", "export", "documents"],
+      "files": 2,
+      "components": 0,
+      "lib": 2,
+      "dependencies": ["jspdf"],
+      "path": "pdf-generator",
+      "readme": "https://raw.githubusercontent.com/teachskillofskills-ai/techshu-boilerplates/main/pdf-generator/README.md"
+    }
+  ],
+  "stats": {
+    "totalBoilerplates": 36,
+    "totalFiles": 203,
+    "totalComponents": 131,
+    "totalLibFiles": 51,
+    "categories": 6
+  },
+  "api": {
+    "baseUrl": "https://raw.githubusercontent.com/teachskillofskills-ai/techshu-boilerplates/main",
+    "endpoints": {
+      "registry": "/registry.json",
+      "boilerplate": "/{boilerplate-id}",
+      "component": "/{boilerplate-id}/components/{component-name}",
+      "lib": "/{boilerplate-id}/lib/{lib-name}",
+      "readme": "/{boilerplate-id}/README.md"
+    }
+  },
+  "cli": {
+    "install": "npm install -g @techshu/cli",
+    "usage": "techshu add <boilerplate-id>",
+    "commands": {
+      "list": "techshu list",
+      "search": "techshu search <query>",
+      "add": "techshu add <boilerplate-id>",
+      "info": "techshu info <boilerplate-id>",
+      "update": "techshu update"
+    }
+  }
+}
+
