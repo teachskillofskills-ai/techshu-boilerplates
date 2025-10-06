@@ -1,0 +1,32 @@
+{
+  "name": "@techshu/admin-dashboard",
+  "version": "1.0.0",
+  "description": "Complete admin dashboard with user management, analytics, and settings",
+  "main": "components/AdminMainContent.tsx",
+  "keywords": [
+    "admin",
+    "dashboard",
+    "management",
+    "react",
+    "nextjs",
+    "typescript"
+  ],
+  "author": "TechShu LMS",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "next": "^14.0.0"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.38.0",
+    "lucide-react": "^0.263.1",
+    "recharts": "^2.10.0",
+    "@tanstack/react-table": "^8.10.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}
+

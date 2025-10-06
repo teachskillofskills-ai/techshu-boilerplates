@@ -1,0 +1,31 @@
+{
+  "name": "@techshu/assignment-system",
+  "version": "1.0.0",
+  "description": "Complete assignment system with creation, submission, and grading",
+  "main": "components/AssignmentManager.tsx",
+  "keywords": [
+    "assignment",
+    "homework",
+    "lms",
+    "education",
+    "react",
+    "nextjs"
+  ],
+  "author": "TechShu LMS",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "next": "^14.0.0"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.38.0",
+    "lucide-react": "^0.263.1",
+    "date-fns": "^2.30.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}
+
