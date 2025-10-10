@@ -47,7 +47,7 @@ interface Registry {
 function showWelcomeBanner() {
   console.log('');
   console.log(chalk.bold.cyan('╔════════════════════════════════════════════════════════════╗'));
-  console.log(chalk.bold.cyan('║') + chalk.bold.white('           🚀 TechShu Boilerplates CLI v1.1.0            ') + chalk.bold.cyan('║'));
+  console.log(chalk.bold.cyan('║') + chalk.bold.white('           🚀 TechShu Boilerplates CLI v1.2.0            ') + chalk.bold.cyan('║'));
   console.log(chalk.bold.cyan('╚════════════════════════════════════════════════════════════╝'));
   console.log('');
   console.log(chalk.gray('  42 Production-Ready Next.js + Supabase Boilerplates'));
@@ -84,7 +84,7 @@ const program = new Command();
 program
   .name('techshu')
   .description('Interactive CLI to fetch TechShu boilerplates and components\nCreated by Indranil Banerjee - Head of AI Transformation, INT TechShu')
-  .version('1.1.0')
+  .version('1.2.0')
   .hook('preAction', () => {
     // Show banner before any command
     if (process.argv.length > 2 && !process.argv.includes('--help') && !process.argv.includes('-h')) {
@@ -118,93 +118,53 @@ program
       const { data } = await axios.get<Registry>(REGISTRY_URL);
       spinner.succeed(chalk.green('✓ Loaded 42 boilerplates!'));
 
-      console.log('');
-      console.log(chalk.bold.cyan('📦 What would you like to do?'));
-      console.log('');
+      // Main interactive loop
+      let continueSession = true;
+      while (continueSession) {
+        console.log('');
+        console.log(chalk.bold.cyan('📦 What would you like to do?'));
+        console.log('');
 
-      const { action } = await inquirer.prompt([{
-        type: 'list',
-        name: 'action',
-        message: 'Choose an action:',
-        choices: [
-          { name: '🔍 Browse by category', value: 'browse' },
-          { name: '🔎 Search boilerplates', value: 'search' },
-          { name: '📋 View all boilerplates', value: 'list' },
-          { name: '❌ Exit', value: 'exit' }
-        ]
-      }]);
-
-      if (action === 'exit') {
-        console.log(chalk.gray('\nGoodbye! 👋\n'));
-        return;
-      }
-
-      if (action === 'browse') {
-        const categories = [...new Set(data.boilerplates.map(b => b.category))];
-        const { category } = await inquirer.prompt([{
+        const { action } = await inquirer.prompt([{
           type: 'list',
-          name: 'category',
-          message: 'Select a category:',
-          choices: categories.map(c => ({ name: `📁 ${c}`, value: c }))
+          name: 'action',
+          message: 'Choose an action:',
+          choices: [
+            { name: '🔍 Browse by category', value: 'browse' },
+            { name: '🔎 Search boilerplates', value: 'search' },
+            { name: '📋 View all boilerplates', value: 'list' },
+            { name: '❌ Exit', value: 'exit' }
+          ]
         }]);
 
-        const filtered = data.boilerplates.filter(b => b.category === category);
-        const { boilerplateId } = await inquirer.prompt([{
-          type: 'list',
-          name: 'boilerplateId',
-          message: `Select a boilerplate from ${category}:`,
-          choices: filtered.map(b => ({
-            name: `${chalk.green(b.id)} - ${chalk.gray(b.description)}`,
-            value: b.id
-          }))
-        }]);
-
-        const boilerplate = data.boilerplates.find(b => b.id === boilerplateId)!;
-        await interactiveAdd(boilerplate);
-      } else if (action === 'search') {
-        const { query } = await inquirer.prompt([{
-          type: 'input',
-          name: 'query',
-          message: 'Enter search term:'
-        }]);
-
-        const results = data.boilerplates.filter(b =>
-          b.id.includes(query.toLowerCase()) ||
-          b.name.toLowerCase().includes(query.toLowerCase()) ||
-          b.description.toLowerCase().includes(query.toLowerCase()) ||
-          b.tags.some(t => t.includes(query.toLowerCase()))
-        );
-
-        if (results.length === 0) {
-          showErrorMessage('No results found');
-          return;
+        if (action === 'exit') {
+          console.log(chalk.gray('\nGoodbye! 👋\n'));
+          continueSession = false;
+          break;
         }
 
-        const { boilerplateId } = await inquirer.prompt([{
-          type: 'list',
-          name: 'boilerplateId',
-          message: `Found ${results.length} result(s):`,
-          choices: results.map(b => ({
-            name: `${chalk.green(b.id)} - ${chalk.gray(b.description)}`,
-            value: b.id
-          }))
-        }]);
-
-        const boilerplate = data.boilerplates.find(b => b.id === boilerplateId)!;
-        await interactiveAdd(boilerplate);
-      } else if (action === 'list') {
-        const { boilerplateId } = await inquirer.prompt([{
-          type: 'list',
-          name: 'boilerplateId',
-          message: 'Select a boilerplate:',
-          choices: data.boilerplates.map(b => ({
-            name: `${chalk.green(b.id)} - ${chalk.gray(b.description)} ${chalk.dim(`[${b.category}]`)}`,
-            value: b.id
-          }))
-        }]);
-
-        const boilerplate = data.boilerplates.find(b => b.id === boilerplateId)!;
-        await interactiveAdd(boilerplate);
+        if (action === 'browse') {
+          const browseResult = await browseByCategoryFlow(data);
+          if (browseResult === 'back') continue;
+          if (browseResult === 'exit') {
+            continueSession = false;
+            break;
+          }
+        } else if (action === 'search') {
+          const searchResult = await searchFlow(data);
+          if (searchResult === 'back') continue;
+          if (searchResult === 'exit') {
+            continueSession = false;
+            break;
+          }
+        } else if (action === 'list') {
+          const listResult = await listAllFlow(data);
+          if (listResult === 'back') continue;
+          if (listResult === 'exit') {
+            continueSession = false;
+            break;
+          }
+        }
       }
     } catch (error) {
       showErrorMessage('Failed to load boilerplates');
@@ -212,8 +172,129 @@ program
     }
   });
 
+// Browse by category flow
+async function browseByCategoryFlow(data: Registry): Promise<'back' | 'exit' | 'continue'> {
+  const categories = [...new Set(data.boilerplates.map(b => b.category))];
+  const { category } = await inquirer.prompt([{
+    type: 'list',
+    name: 'category',
+    message: 'Select a category:',
+    choices: [
+      ...categories.map(c => ({ name: `📁 ${c}`, value: c })),
+      new inquirer.Separator(),
+      { name: '🔙 Back to main menu', value: 'back' }
+    ]
+  }]);
+
+  if (category === 'back') return 'back';
+
+  const filtered = data.boilerplates.filter(b => b.category === category);
+  const { boilerplateId } = await inquirer.prompt([{
+    type: 'list',
+    name: 'boilerplateId',
+    message: `Select a boilerplate from ${category}:`,
+    choices: [
+      ...filtered.map(b => ({
+        name: `${chalk.green(b.id)} - ${chalk.gray(b.description)}`,
+        value: b.id
+      })),
+      new inquirer.Separator(),
+      { name: '🔙 Back to categories', value: 'back' },
+      { name: '🏠 Back to main menu', value: 'home' }
+    ]
+  }]);
+
+  if (boilerplateId === 'back') return browseByCategoryFlow(data);
+  if (boilerplateId === 'home') return 'back';
+
+  const boilerplate = data.boilerplates.find(b => b.id === boilerplateId)!;
+  const result = await interactiveAdd(boilerplate);
+  return result;
+}
+
+// Search flow
+async function searchFlow(data: Registry): Promise<'back' | 'exit' | 'continue'> {
+  const { query } = await inquirer.prompt([{
+    type: 'input',
+    name: 'query',
+    message: 'Enter search term (or type "back" to go back):'
+  }]);
+
+  if (query.toLowerCase() === 'back') return 'back';
+
+  const results = data.boilerplates.filter(b =>
+    b.id.includes(query.toLowerCase()) ||
+    b.name.toLowerCase().includes(query.toLowerCase()) ||
+    b.description.toLowerCase().includes(query.toLowerCase()) ||
+    b.tags.some(t => t.includes(query.toLowerCase()))
+  );
+
+  if (results.length === 0) {
+    showErrorMessage('No results found');
+    showTip('Try different keywords or go back to main menu');
+
+    const { retry } = await inquirer.prompt([{
+      type: 'list',
+      name: 'retry',
+      message: 'What would you like to do?',
+      choices: [
+        { name: '🔎 Search again', value: 'retry' },
+        { name: '🏠 Back to main menu', value: 'back' }
+      ]
+    }]);
+
+    if (retry === 'retry') return searchFlow(data);
+    return 'back';
+  }
+
+  const { boilerplateId } = await inquirer.prompt([{
+    type: 'list',
+    name: 'boilerplateId',
+    message: `Found ${results.length} result(s):`,
+    choices: [
+      ...results.map(b => ({
+        name: `${chalk.green(b.id)} - ${chalk.gray(b.description)}`,
+        value: b.id
+      })),
+      new inquirer.Separator(),
+      { name: '🔙 Search again', value: 'back' },
+      { name: '🏠 Back to main menu', value: 'home' }
+    ]
+  }]);
+
+  if (boilerplateId === 'back') return searchFlow(data);
+  if (boilerplateId === 'home') return 'back';
+
+  const boilerplate = data.boilerplates.find(b => b.id === boilerplateId)!;
+  const result = await interactiveAdd(boilerplate);
+  return result;
+}
+
+// List all flow
+async function listAllFlow(data: Registry): Promise<'back' | 'exit' | 'continue'> {
+  const { boilerplateId } = await inquirer.prompt([{
+    type: 'list',
+    name: 'boilerplateId',
+    message: 'Select a boilerplate:',
+    choices: [
+      ...data.boilerplates.map(b => ({
+        name: `${chalk.green(b.id)} - ${chalk.gray(b.description)} ${chalk.dim(`[${b.category}]`)}`,
+        value: b.id
+      })),
+      new inquirer.Separator(),
+      { name: '🏠 Back to main menu', value: 'back' }
+    ]
+  }]);
+
+  if (boilerplateId === 'back') return 'back';
+
+  const boilerplate = data.boilerplates.find(b => b.id === boilerplateId)!;
+  const result = await interactiveAdd(boilerplate);
+  return result;
+}
+
 // Helper function for interactive add
-async function interactiveAdd(boilerplate: Boilerplate) {
+async function interactiveAdd(boilerplate: Boilerplate): Promise<'back' | 'exit' | 'continue'> {
   console.log('');
   console.log(chalk.bold.cyan(`📦 ${boilerplate.name} v${boilerplate.version}`));
   console.log(chalk.gray(boilerplate.description));
@@ -232,16 +313,27 @@ async function interactiveAdd(boilerplate: Boilerplate) {
 
   console.log('');
 
-  const { confirm } = await inquirer.prompt([{
-    type: 'confirm',
-    name: 'confirm',
-    message: 'Do you want to add this boilerplate to your project?',
-    default: true
+  const { action } = await inquirer.prompt([{
+    type: 'list',
+    name: 'action',
+    message: 'What would you like to do?',
+    choices: [
+      { name: '✅ Install this boilerplate', value: 'install' },
+      { name: '🔙 Go back', value: 'back' },
+      { name: '🏠 Back to main menu', value: 'home' },
+      { name: '❌ Exit', value: 'exit' }
+    ]
   }]);
 
-  if (!confirm) {
-    console.log(chalk.gray('\nCancelled.\n'));
-    return;
+  if (action === 'back') return 'back';
+  if (action === 'home') return 'back';
+  if (action === 'exit') {
+    console.log(chalk.gray('\nGoodbye! 👋\n'));
+    return 'exit';
+  }
+
+  if (action !== 'install') {
+    return 'back';
   }
 
   const { destPath } = await inquirer.prompt([{
@@ -263,7 +355,7 @@ async function interactiveAdd(boilerplate: Boilerplate) {
 
     if (!overwrite) {
       console.log(chalk.gray('\nCancelled.\n'));
-      return;
+      return 'back';
     }
   }
 
@@ -291,10 +383,49 @@ async function interactiveAdd(boilerplate: Boilerplate) {
     console.log(chalk.cyan(`   ${fullPath}/README.md`));
     console.log('');
 
-    showTip('Run "techshu browse" to add more boilerplates!');
+    // Ask what to do next
+    const { nextAction } = await inquirer.prompt([{
+      type: 'list',
+      name: 'nextAction',
+      message: 'What would you like to do next?',
+      choices: [
+        { name: '➕ Add another boilerplate', value: 'continue' },
+        { name: '🏠 Back to main menu', value: 'back' },
+        { name: '❌ Exit', value: 'exit' }
+      ]
+    }]);
+
+    if (nextAction === 'exit') {
+      console.log(chalk.gray('\nGoodbye! 👋\n'));
+      return 'exit';
+    }
+
+    return nextAction === 'continue' ? 'back' : 'back';
   } catch (error) {
     spinner.fail(chalk.red('Failed to download boilerplate'));
     console.error(chalk.red(error));
+
+    const { retry } = await inquirer.prompt([{
+      type: 'list',
+      name: 'retry',
+      message: 'What would you like to do?',
+      choices: [
+        { name: '🔄 Try again', value: 'retry' },
+        { name: '🏠 Back to main menu', value: 'back' },
+        { name: '❌ Exit', value: 'exit' }
+      ]
+    }]);
+
+    if (retry === 'exit') {
+      console.log(chalk.gray('\nGoodbye! 👋\n'));
+      return 'exit';
+    }
+
+    if (retry === 'retry') {
+      return interactiveAdd(boilerplate);
+    }
+
+    return 'back';
   }
 }
 
