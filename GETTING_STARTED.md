@@ -11,9 +11,38 @@ Before you start, make sure you have:
 - ✅ Basic knowledge of React and TypeScript
 - ✅ (Optional) A Supabase account for backend features
 
-## 🎯 Quick Start (5 Minutes)
+## 🎯 Quick Start (2 Minutes)
 
-### Step 1: Choose Your Boilerplate
+### Method 1: Use the CLI (Recommended) ⭐
+
+**The fastest way to get started!**
+
+```bash
+# Install the CLI
+npm install -g @techshu/cli
+
+# List all available boilerplates
+techshu list
+
+# Add a boilerplate to your project
+techshu add authentication
+
+# That's it! The CLI will:
+# ✅ Download all files
+# ✅ Create directory structure
+# ✅ Show you what dependencies to install
+# ✅ Point you to the README
+```
+
+**See [CLI_USER_GUIDE.md](./CLI_USER_GUIDE.md) for complete CLI documentation**
+
+---
+
+### Method 2: Manual Installation
+
+**If you prefer manual control:**
+
+#### Step 1: Choose Your Boilerplate
 
 Browse the [Boilerplate Index](./BOILERPLATE_INDEX.md) and choose what you need.
 
@@ -23,7 +52,7 @@ Browse the [Boilerplate Index](./BOILERPLATE_INDEX.md) and choose what you need.
 3. **File Upload** - If you need file handling
 4. **Admin Dashboard** - If you need admin features
 
-### Step 2: Copy the Boilerplate
+#### Step 2: Copy the Boilerplate
 
 ```bash
 # Navigate to your project
@@ -36,7 +65,7 @@ cp -r path/to/TechShuLMS/boilerplates/authentication ./boilerplates/authenticati
 cp -r path/to/TechShuLMS/boilerplates ./
 ```
 
-### Step 3: Install Dependencies
+#### Step 3: Install Dependencies
 
 Each boilerplate has its own dependencies. Check the boilerplate's README for specifics.
 

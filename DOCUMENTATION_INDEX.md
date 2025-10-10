@@ -10,13 +10,14 @@
 
 ### I want to...
 
-**...get started quickly** → [QUICK_START.md](./QUICK_START.md) (5 minutes)  
-**...understand everything** → [USER_GUIDE.md](./USER_GUIDE.md) (30 minutes)  
-**...follow a tutorial** → [TUTORIALS_COMPREHENSIVE.md](./TUTORIALS_COMPREHENSIVE.md) (varies)  
-**...see code examples** → [EXAMPLES_COMPREHENSIVE.md](./EXAMPLES_COMPREHENSIVE.md) (reference)  
-**...find a use case** → [SCENARIOS_COMPREHENSIVE.md](./SCENARIOS_COMPREHENSIVE.md) (reference)  
-**...solve a problem** → [TROUBLESHOOTING.md](./TROUBLESHOOTING.md) (reference)  
-**...learn best practices** → [BEST_PRACTICES.md](./BEST_PRACTICES.md) (reference)  
+**...get started quickly** → [QUICK_START.md](./QUICK_START.md) (2 minutes)
+**...use the CLI** → [CLI_USER_GUIDE.md](./CLI_USER_GUIDE.md) (5 minutes)
+**...understand everything** → [USER_GUIDE.md](./USER_GUIDE.md) (30 minutes)
+**...follow a tutorial** → [TUTORIALS_COMPREHENSIVE.md](./TUTORIALS_COMPREHENSIVE.md) (varies)
+**...see code examples** → [EXAMPLES_COMPREHENSIVE.md](./EXAMPLES_COMPREHENSIVE.md) (reference)
+**...find a use case** → [SCENARIOS_COMPREHENSIVE.md](./SCENARIOS_COMPREHENSIVE.md) (reference)
+**...solve a problem** → [TROUBLESHOOTING.md](./TROUBLESHOOTING.md) (reference)
+**...learn best practices** → [BEST_PRACTICES.md](./BEST_PRACTICES.md) (reference)
 
 ---
 
@@ -49,7 +50,8 @@ Perfect for beginners or first-time users.
 | Document | Description | Time | Difficulty |
 |----------|-------------|------|------------|
 | **[README.md](./README.md)** | Project overview and quick links | 5 min | ⭐ Easy |
-| **[QUICK_START.md](./QUICK_START.md)** | Get running in 5 minutes | 5 min | ⭐ Easy |
+| **[QUICK_START.md](./QUICK_START.md)** | Get running in 2 minutes | 2 min | ⭐ Easy |
+| **[CLI_USER_GUIDE.md](./CLI_USER_GUIDE.md)** | Complete CLI guide | 5 min | ⭐ Easy |
 | **[GETTING_STARTED.md](./GETTING_STARTED.md)** | Detailed setup guide | 20 min | ⭐ Easy |
 | **[TUTORIALS.md](./TUTORIALS.md)** | Step-by-step tutorials | 30-60 min | ⭐⭐ Medium |
 

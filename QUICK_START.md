@@ -1,10 +1,52 @@
-# 🚀 Quick Start - 5 Minutes to GitHub
+# 🚀 Quick Start - 2 Minutes to Production
 
-## The Fastest Way to Get Your Boilerplates Online
+## The Fastest Way to Use TechShu Boilerplates
 
 ---
 
-## ⚡ Option 1: Automated Script (Easiest)
+## ⚡ Option 1: Use the CLI (Recommended)
+
+### Step 1: Install the CLI
+
+```bash
+npm install -g @techshu/cli
+```
+
+### Step 2: Add Boilerplates to Your Project
+
+```bash
+# Navigate to your project
+cd my-project
+
+# List available boilerplates
+techshu list
+
+# Add what you need
+techshu add authentication
+techshu add course-management
+techshu add email-service
+```
+
+### Step 3: Install Dependencies
+
+```bash
+# The CLI will tell you what to install
+npm install @supabase/supabase-js @supabase/auth-helpers-nextjs
+```
+
+### Step 4: Start Building!
+
+```bash
+npm run dev
+```
+
+**Done! You're ready to build!** 🎉
+
+**See [CLI_USER_GUIDE.md](./CLI_USER_GUIDE.md) for more details**
+
+---
+
+## 📝 Option 2: Manual Installation
 
 ### Step 1: Open PowerShell
 

@@ -4,6 +4,7 @@
 
 **42 Production-Ready Boilerplates for Next.js 14 + Supabase Applications**
 
+[![npm version](https://badge.fury.io/js/%40techshu%2Fcli.svg)](https://www.npmjs.com/package/@techshu/cli)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
 [![Next.js](https://img.shields.io/badge/Next.js-14-black.svg)](https://nextjs.org/)
@@ -11,7 +12,7 @@
 
 *Save 6-12 months of development time with production-tested, plug-and-play boilerplates*
 
-[Quick Start](#-quick-start) • [Documentation](#-documentation) • [Examples](#-examples) • [Contributing](./CONTRIBUTING.md)
+[Quick Start](#-quick-start) • [CLI Tool](#-cli-tool) • [Documentation](#-documentation) • [Examples](#-examples) • [Contributing](./CONTRIBUTING.md)
 
 </div>
 
@@ -105,6 +106,8 @@ A comprehensive collection of **42 production-ready boilerplates** extracted fro
 
 ### Method 1: Use the CLI (Recommended) ⭐
 
+The fastest and easiest way to use TechShu boilerplates!
+
 ```bash
 # Install CLI globally
 npm install -g @techshu/cli
@@ -120,7 +123,12 @@ techshu add email-service
 
 # Add to specific path
 techshu add email-service --path ./src/lib
+
+# Force overwrite existing files
+techshu add email-service --force
 ```
+
+**See [CLI_USER_GUIDE.md](./CLI_USER_GUIDE.md) for complete CLI documentation**
 
 ### Method 2: Use the API 🔌
 
@@ -168,6 +176,53 @@ supabase db push
 
 ### 6. Import and Use
 Follow the usage examples in each boilerplate's README.
+
+---
+
+## 🛠️ CLI Tool
+
+The TechShu CLI is the easiest way to add boilerplates to your project. No manual copying, no mistakes!
+
+### Installation
+
+```bash
+# Global installation (recommended)
+npm install -g @techshu/cli
+
+# Or use without installing
+npx @techshu/cli list
+```
+
+### Commands
+
+| Command | Description | Example |
+|---------|-------------|---------|
+| `techshu list` | List all boilerplates | `techshu list --category "AI & Intelligence"` |
+| `techshu search <query>` | Search boilerplates | `techshu search auth` |
+| `techshu info <id>` | Get detailed info | `techshu info authentication` |
+| `techshu add <id>` | Add to project | `techshu add authentication --path ./lib` |
+
+### Real-World Example
+
+```bash
+# Building an LMS? Here's what you need:
+techshu add authentication
+techshu add course-management
+techshu add progress-tracking
+techshu add email-service
+
+# Install dependencies
+npm install @supabase/supabase-js @supabase/auth-helpers-nextjs react-hook-form zod
+
+# Start building!
+npm run dev
+```
+
+**Time saved**: 2-3 weeks of development ⚡
+
+**Complete documentation**: [CLI_USER_GUIDE.md](./CLI_USER_GUIDE.md)
+
+---
 
 ## 📚 Documentation Structure
 
