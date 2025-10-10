@@ -239,36 +239,69 @@ program
 async function downloadBoilerplate(boilerplate: Boilerplate, destPath: string, spinner: ora.Ora) {
   // Create destination directory
   await fs.ensureDir(destPath);
-  
-  // Download README
+
+  // Use GitHub API to get directory contents
+  const githubApiUrl = `https://api.github.com/repos/teachskillofskills-ai/techshu-boilerplates/contents/${boilerplate.path}`;
+
   try {
-    const readmeUrl = `${BASE_URL}/${boilerplate.path}/README.md`;
-    const { data } = await axios.get(readmeUrl);
-    await fs.writeFile(path.join(destPath, 'README.md'), data);
-  } catch (error) {
-    // README might not exist
-  }
-  
-  // Download directories
-  const dirs = ['components', 'lib', 'hooks', 'api', 'database', 'examples'];
-  
-  for (const dir of dirs) {
-    try {
-      const dirPath = `${BASE_URL}/${boilerplate.path}/${dir}`;
-      await downloadDirectory(dirPath, path.join(destPath, dir), spinner);
-    } catch (error) {
-      // Directory might not exist
+    const { data } = await axios.get(githubApiUrl);
+
+    if (!Array.isArray(data)) {
+      throw new Error('Invalid response from GitHub API');
     }
+
+    // Download all files and directories
+    for (const item of data) {
+      if (item.type === 'file') {
+        spinner.text = `Downloading ${item.name}...`;
+        await downloadFile(item.download_url, path.join(destPath, item.name));
+      } else if (item.type === 'dir') {
+        spinner.text = `Downloading ${item.name}/...`;
+        await downloadDirectoryRecursive(item.path, path.join(destPath, item.name), spinner);
+      }
+    }
+  } catch (error: any) {
+    if (error.response?.status === 404) {
+      throw new Error(`Boilerplate "${boilerplate.id}" not found in repository`);
+    }
+    throw error;
   }
 }
 
-async function downloadDirectory(url: string, destPath: string, spinner: ora.Ora) {
-  // This is a simplified version - in production, you'd use GitHub API to list files
-  // For now, we'll just try to download common files
-  const extensions = ['.ts', '.tsx', '.js', '.jsx', '.sql', '.json'];
-  
-  // You would implement proper directory listing here
-  // For now, this is a placeholder
+async function downloadDirectoryRecursive(githubPath: string, destPath: string, spinner: ora.Ora) {
+  await fs.ensureDir(destPath);
+
+  const githubApiUrl = `https://api.github.com/repos/teachskillofskills-ai/techshu-boilerplates/contents/${githubPath}`;
+
+  try {
+    const { data } = await axios.get(githubApiUrl);
+
+    if (!Array.isArray(data)) {
+      return;
+    }
+
+    for (const item of data) {
+      if (item.type === 'file') {
+        const fileName = path.basename(item.name);
+        spinner.text = `Downloading ${githubPath}/${fileName}...`;
+        await downloadFile(item.download_url, path.join(destPath, fileName));
+      } else if (item.type === 'dir') {
+        await downloadDirectoryRecursive(item.path, path.join(destPath, item.name), spinner);
+      }
+    }
+  } catch (error) {
+    // Directory might not exist or be empty
+    console.log(chalk.gray(`  Skipping ${githubPath} (not found or empty)`));
+  }
+}
+
+async function downloadFile(url: string, destPath: string) {
+  try {
+    const { data } = await axios.get(url, { responseType: 'text' });
+    await fs.writeFile(destPath, data, 'utf-8');
+  } catch (error: any) {
+    console.log(chalk.yellow(`  Warning: Failed to download ${path.basename(destPath)}`));
+  }
 }
 
 program.parse();
