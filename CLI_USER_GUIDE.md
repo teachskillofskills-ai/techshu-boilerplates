@@ -2,7 +2,9 @@
 
 **The easiest way to use TechShu Boilerplates in your projects**
 
-> 💡 **Why use the CLI?** Instead of manually copying files from GitHub, the CLI downloads everything with one command, sets up the structure, and tells you exactly what to do next.
+**✨ Version 1.1.0** - Now with interactive mode, beautiful formatting, and helpful guidance!
+
+> 💡 **Why use the CLI?** Instead of manually copying files from GitHub, the CLI downloads everything with one command, sets up the structure, and tells you exactly what to do next. **Now with interactive browse mode for beginners!**
 
 ---
 
@@ -19,7 +21,7 @@ npm install -g @techshu/cli
 **Verify installation**:
 ```bash
 techshu --version
-# Output: 1.0.0
+# Output: 1.1.0
 ```
 
 ### Option 2: Use Without Installing (npx)
@@ -48,15 +50,41 @@ npx techshu list
 
 ## 🎯 Quick Start (2 minutes)
 
-### Step 1: See What's Available
+### 🌟 NEW! Interactive Mode (Perfect for Beginners)
+
+The easiest way to get started:
+
+```bash
+techshu browse
+```
+
+**What happens**:
+1. Beautiful welcome banner appears
+2. Choose from:
+   - 🔍 Browse by category
+   - 🔎 Search boilerplates
+   - 📋 View all boilerplates
+3. Select a boilerplate with arrow keys
+4. View details and confirm
+5. Choose installation path
+6. Done! Files downloaded with progress tracking
+
+**Perfect for**:
+- First-time users
+- Exploring what's available
+- Guided installation experience
+
+### Classic Mode (For Experienced Users)
+
+#### Step 1: See What's Available
 
 ```bash
 techshu list
 ```
 
-You'll see all 42 boilerplates organized by category.
+You'll see all 42 boilerplates organized by category with beautiful formatting.
 
-### Step 2: Find What You Need
+#### Step 2: Find What You Need
 
 ```bash
 # Search for authentication
@@ -69,33 +97,55 @@ techshu search AI
 techshu search email
 ```
 
-### Step 3: Get Details
+#### Step 3: Get Details
 
 ```bash
 techshu info authentication
 ```
 
-You'll see:
+You'll see a beautiful box with:
 - What it does
 - What files it includes
 - What dependencies you need
 - How to install it
 
-### Step 4: Add to Your Project
+#### Step 4: Add to Your Project
 
 ```bash
 techshu add authentication
 ```
 
 That's it! The CLI will:
-1. ✅ Download all files
+1. ✅ Download all files with progress tracking
 2. ✅ Create the directory structure
-3. ✅ Tell you what dependencies to install
-4. ✅ Show you where to find the README
+3. ✅ Show success celebration 🎉
+4. ✅ Tell you what dependencies to install
+5. ✅ Show you where to find the README
+6. ✅ Give you helpful tips
 
 ---
 
 ## 📚 Complete Command Reference
+
+### `techshu browse` 🎯 NEW!
+
+**Interactive mode** - Browse and add boilerplates with guided experience.
+
+```bash
+techshu browse
+```
+
+**Features**:
+- Browse by category
+- Search functionality
+- Interactive selection with arrow keys
+- View details before installing
+- Confirmation prompts
+- Guided installation
+
+**Perfect for**: Beginners, exploring, guided experience
+
+---
 
 ### `techshu list`
 

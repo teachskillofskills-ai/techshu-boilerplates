@@ -106,17 +106,23 @@ A comprehensive collection of **42 production-ready boilerplates** extracted fro
 
 ### Method 1: Use the CLI (Recommended) ⭐
 
-The fastest and easiest way to use TechShu boilerplates!
+The fastest and easiest way to use TechShu boilerplates! **Now with interactive mode!**
 
 ```bash
 # Install CLI globally
 npm install -g @techshu/cli
+
+# 🎯 NEW! Interactive mode (perfect for beginners)
+techshu browse
 
 # List available boilerplates
 techshu list
 
 # Search for boilerplates
 techshu search email
+
+# Get detailed info
+techshu info email-service
 
 # Add a boilerplate to your project
 techshu add email-service
@@ -127,6 +133,8 @@ techshu add email-service --path ./src/lib
 # Force overwrite existing files
 techshu add email-service --force
 ```
+
+**✨ New in v1.1.0**: Interactive browse mode, beautiful formatting, helpful tips, and progress tracking!
 
 **See [CLI_USER_GUIDE.md](./CLI_USER_GUIDE.md) for complete CLI documentation**
 
@@ -183,6 +191,8 @@ Follow the usage examples in each boilerplate's README.
 
 The TechShu CLI is the easiest way to add boilerplates to your project. No manual copying, no mistakes!
 
+**✨ Version 1.1.0** - Now with interactive mode, beautiful formatting, and helpful guidance!
+
 ### Installation
 
 ```bash
@@ -190,13 +200,14 @@ The TechShu CLI is the easiest way to add boilerplates to your project. No manua
 npm install -g @techshu/cli
 
 # Or use without installing
-npx @techshu/cli list
+npx @techshu/cli browse
 ```
 
 ### Commands
 
 | Command | Description | Example |
 |---------|-------------|---------|
+| `techshu browse` | 🎯 **NEW!** Interactive mode | `techshu browse` |
 | `techshu list` | List all boilerplates | `techshu list --category "AI & Intelligence"` |
 | `techshu search <query>` | Search boilerplates | `techshu search auth` |
 | `techshu info <id>` | Get detailed info | `techshu info authentication` |

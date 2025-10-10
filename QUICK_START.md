@@ -2,24 +2,54 @@
 
 ## The Fastest Way to Use TechShu Boilerplates
 
+**✨ Now with Interactive Mode!** Perfect for beginners.
+
 ---
 
 ## ⚡ Option 1: Use the CLI (Recommended)
 
-### Step 1: Install the CLI
+### 🌟 NEW! Interactive Mode (Perfect for Beginners)
+
+```bash
+# Install CLI
+npm install -g @techshu/cli
+
+# Start interactive mode
+techshu browse
+```
+
+**What happens**:
+1. Beautiful welcome banner
+2. Choose: Browse by category, Search, or View all
+3. Select boilerplate with arrow keys
+4. View details and confirm
+5. Files downloaded with progress tracking
+6. Success celebration with next steps! 🎉
+
+**Perfect for**: First-time users, exploring, guided experience
+
+### Classic Mode (For Experienced Users)
+
+#### Step 1: Install the CLI
 
 ```bash
 npm install -g @techshu/cli
 ```
 
-### Step 2: Add Boilerplates to Your Project
+#### Step 2: Add Boilerplates to Your Project
 
 ```bash
 # Navigate to your project
 cd my-project
 
-# List available boilerplates
+# List available boilerplates (with beautiful formatting!)
 techshu list
+
+# Search for what you need
+techshu search auth
+
+# Get detailed info
+techshu info authentication
 
 # Add what you need
 techshu add authentication
@@ -27,14 +57,14 @@ techshu add course-management
 techshu add email-service
 ```
 
-### Step 3: Install Dependencies
+#### Step 3: Install Dependencies
 
 ```bash
 # The CLI will tell you what to install
 npm install @supabase/supabase-js @supabase/auth-helpers-nextjs
 ```
 
-### Step 4: Start Building!
+#### Step 4: Start Building!
 
 ```bash
 npm run dev
@@ -42,7 +72,7 @@ npm run dev
 
 **Done! You're ready to build!** 🎉
 
-**See [CLI_USER_GUIDE.md](./CLI_USER_GUIDE.md) for more details**
+**See [CLI_USER_GUIDE.md](./CLI_USER_GUIDE.md) for complete documentation**
 
 ---
 

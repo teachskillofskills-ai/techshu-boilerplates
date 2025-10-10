@@ -15,24 +15,54 @@ Before you start, make sure you have:
 
 ### Method 1: Use the CLI (Recommended) ⭐
 
-**The fastest way to get started!**
+**The fastest way to get started! Now with interactive mode!**
+
+#### 🌟 NEW! Interactive Mode (Perfect for Beginners)
 
 ```bash
 # Install the CLI
 npm install -g @techshu/cli
 
-# List all available boilerplates
+# Start interactive mode
+techshu browse
+```
+
+**What happens**:
+- Beautiful welcome banner
+- Browse by category or search
+- Select with arrow keys
+- View details before installing
+- Guided installation with progress tracking
+- Success celebration with next steps! 🎉
+
+#### Classic Mode (For Experienced Users)
+
+```bash
+# Install the CLI
+npm install -g @techshu/cli
+
+# List all available boilerplates (with beautiful formatting!)
 techshu list
+
+# Search for what you need
+techshu search auth
+
+# Get detailed info
+techshu info authentication
 
 # Add a boilerplate to your project
 techshu add authentication
 
 # That's it! The CLI will:
-# ✅ Download all files
+# ✅ Download all files with progress tracking
 # ✅ Create directory structure
+# ✅ Show success celebration 🎉
 # ✅ Show you what dependencies to install
 # ✅ Point you to the README
+# ✅ Give you helpful tips
 ```
+
+**✨ New in v1.1.0**: Interactive browse mode, beautiful formatting, helpful tips!
 
 **See [CLI_USER_GUIDE.md](./CLI_USER_GUIDE.md) for complete CLI documentation**
 
