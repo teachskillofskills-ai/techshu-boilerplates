@@ -2,7 +2,7 @@
 
 **The easiest way to use TechShu Boilerplates in your projects**
 
-**✨ Version 1.1.0** - Now with interactive mode, beautiful formatting, and helpful guidance!
+**✨ Version 1.2.0** - Now with back navigation, continuous session, and seamless workflow!
 
 > 💡 **Why use the CLI?** Instead of manually copying files from GitHub, the CLI downloads everything with one command, sets up the structure, and tells you exactly what to do next. **Now with interactive browse mode for beginners!**
 
@@ -21,7 +21,7 @@ npm install -g @techshu/cli
 **Verify installation**:
 ```bash
 techshu --version
-# Output: 1.1.0
+# Output: 1.2.0
 ```
 
 ### Option 2: Use Without Installing (npx)

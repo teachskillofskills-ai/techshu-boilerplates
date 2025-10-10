@@ -1,6 +1,6 @@
 # 🔄 How to Update TechShu CLI
 
-**Current npm version**: 1.1.0  
+**Current npm version**: 1.2.0 ✅
 **Latest version**: 1.2.0 (with back navigation!)
 
 ---

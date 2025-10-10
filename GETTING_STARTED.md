@@ -62,7 +62,7 @@ techshu add authentication
 # ✅ Give you helpful tips
 ```
 
-**✨ New in v1.1.0**: Interactive browse mode, beautiful formatting, helpful tips!
+**✨ New in v1.2.0**: Back navigation everywhere, continuous session, seamless multi-boilerplate installation!
 
 **See [CLI_USER_GUIDE.md](./CLI_USER_GUIDE.md) for complete CLI documentation**
 

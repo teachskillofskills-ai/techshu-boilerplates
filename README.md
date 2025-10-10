@@ -134,7 +134,7 @@ techshu add email-service --path ./src/lib
 techshu add email-service --force
 ```
 
-**✨ New in v1.1.0**: Interactive browse mode, beautiful formatting, helpful tips, and progress tracking!
+**✨ New in v1.2.0**: Back navigation everywhere, continuous session, install multiple boilerplates in one go!
 
 **See [CLI_USER_GUIDE.md](./CLI_USER_GUIDE.md) for complete CLI documentation**
 
@@ -191,7 +191,7 @@ Follow the usage examples in each boilerplate's README.
 
 The TechShu CLI is the easiest way to add boilerplates to your project. No manual copying, no mistakes!
 
-**✨ Version 1.1.0** - Now with interactive mode, beautiful formatting, and helpful guidance!
+**✨ Version 1.2.0** - Now with back navigation, continuous session, and seamless multi-boilerplate installation!
 
 ### Installation
 
